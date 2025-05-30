@@ -1,129 +1,181 @@
 <!DOCTYPE html><html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lyne - Revista Global</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #ffffff;
-        color: #1f2937;
-      }header {
-    background-color: #0f172a;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .logo-container img {
-    width: 50px;
-    height: auto;
-    margin-right: 0.75rem;
-  }
-
-  .title {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.25rem;
-  }
-
-  nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    background-color: #1e293b;
-    padding: 0.75rem 0;
-  }
-
-  nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-  }
-
-  main {
-    padding: 2rem;
-    background-color: #1e293b;
-    color: #ffffff;
-    text-align: center;
-  }
-
-  .featured {
-    background-color: #f8fafc;
-    color: #0f172a;
-    margin: 2rem;
-    padding: 1rem;
-    border-left: 6px solid #facc15;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem;
-  }
-
-  .category {
-    background-color: #e2e8f0;
-    padding: 0.75rem 1.25rem;
-    border-radius: 9999px;
-    font-weight: 600;
-    color: #1e293b;
-  }
-</style>
-
-  </head>
-  <body>
-    <header>
-      <div class="logo-container">
-        <img src="logo.jpg" alt="Logotipo de Lyne" />
-        <div class="title">Lyne | Revista Global</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyne | Revista Global</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Merriweather', serif;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    header {
+      background-color: #0d1b2a;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .logo span {
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #0d1b2a;
+      padding: 5px 0;
+      overflow-x: auto;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      white-space: nowrap;
+    }
+    nav a:hover {
+      background-color: #1b2c47;
+    }
+    .hero {
+      text-align: center;
+      background-color: #1b263b;
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 16px;
+    }
+    .destacado {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px;
+      border-left: 4px solid #f4c430;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .categorias a {
+      background-color: #e9ecef;
+      padding: 8px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+      }
+      nav.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+        <span>Lyne | Revista Global</span>
       </div>
-    </header><nav>
-  <a href="#articulos">Artículos</a>
-  <a href="#opiniones">Opiniones</a>
-  <a href="#contacto">Contacto</a>
-  <a href="#revistas">Revistas Universitarias</a>
-  <a href="#autores">Autores Destacados</a>
-  <a href="#iniciativas">Iniciativas Estudiantiles</a>
-</nav>
-
-<main>
-  <h1>Lyne: Revista Global de Artículos Académicos</h1>
-  <p>Comparte tu conocimiento, conecta con el mundo.</p>
-</main>
-
-<section class="featured">
-  <h2>Artículo Destacado: El futuro de la educación científica</h2>
-  <p>Exploramos cómo la investigación escolar está transformando el pensamiento global.</p>
-</section>
-
-<section class="categories">
-  <div class="category">Derecho</div>
-  <div class="category">Economía</div>
-  <div class="category">Pedagogía</div>
-  <div class="category">Política</div>
-  <div class="category">Agro</div>
-  <div class="category">Tecnología</div>
-  <div class="category">Ciencias Sociales</div>
-</section>
-
-  </body>
-    </html>
+      <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    </div>
+    <nav>
+      <a href="#articulos">Artículos</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#revistas">Revistas Universitarias</a>
+      <a href="#autores">Autores Destacados</a>
+      <a href="#iniciativas">Iniciativas Estudiantiles</a>
+    </nav>
+  </header>  <section class="hero">
+    <h1>Lyne: Plataforma Internacional para la Difusión del Conocimiento Académico</h1>
+    <p>Un espacio para el pensamiento crítico, la innovación estudiantil y el diálogo académico global.</p>
+  </section>  <section class="destacado" id="articulos">
+    <h2>Artículo Destacado: El futuro de la educación científica</h2>
+    <p>Exploramos cómo la investigación escolar está transformando el pensamiento global.</p>
+  </section>  <div class="categorias">
+    <a href="#derecho">Derecho</a>
+    <a href="#economia">Economía</a>
+    <a href="#pedagogia">Pedagogía</a>
+    <a href="#cienciaspoliticas">Ciencias Políticas</a>
+    <a href="#agro">Agro: Ambiental</a>
+    <a href="#tecnologia">Tecnología</a>
+    <a href="#sociales">Ciencias Sociales</a>
+  </div>  <section class="destacado" id="derecho">
+    <h2>Derecho: La justicia en manos juveniles</h2>
+    <p>Estudiantes exploran el derecho constitucional y su impacto en los derechos humanos.</p>
+  </section>
+  <section class="destacado" id="economia">
+    <h2>Economía: Nuevas miradas desde la educación secundaria</h2>
+    <p>Propuestas económicas estudiantiles ante desafíos locales y globales.</p>
+  </section>
+  <section class="destacado" id="pedagogia">
+    <h2>Pedagogía: Innovación en el aula</h2>
+    <p>Iniciativas que están revolucionando la enseñanza desde la perspectiva estudiantil.</p>
+  </section>
+  <section class="destacado" id="cienciaspoliticas">
+    <h2>Ciencias Políticas: Democracia y juventud</h2>
+    <p>Reflexiones sobre el papel de los jóvenes en los sistemas democráticos.</p>
+  </section>
+  <section class="destacado" id="agro">
+    <h2>Agro: Ambiental</h2>
+    <p>Proyectos que integran sostenibilidad, agricultura y protección ambiental.</p>
+  </section>
+  <section class="destacado" id="tecnologia">
+    <h2>Tecnología: Innovación al servicio de la sociedad</h2>
+    <p>Soluciones tecnológicas desarrolladas por estudiantes para su comunidad.</p>
+  </section>
+  <section class="destacado" id="sociales">
+    <h2>Ciencias Sociales: Cultura, historia y transformación</h2>
+    <p>Análisis sociales y humanísticos que fomentan una visión crítica del mundo.</p>
+  </section>
+</body>
+  </html>
