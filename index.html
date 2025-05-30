@@ -4,59 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lyne | Revista Global</title>
-  <meta name="description" content="Plataforma internacional para la difusión del conocimiento académico mediante publicaciones estudiantiles." />
-  <meta name="author" content="Lyne Revista Global" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Merriweather&family=Libre+Baskerville&display=swap"
   />
   <style>
-    /* Reset & base */
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     html {
       scroll-behavior: smooth;
-      font-size: 16px;
-      background-color: #f8f9fa;
-      color: #212529;
     }
     body {
       font-family: 'Libre Baskerville', serif;
+      background-color: #f8f9fa;
+      color: #212529;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      line-height: 1.6;
-      background-color: #f8f9fa;
-      color: #212529;
     }
-    a {
-      color: #0d6efd;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover,
-    a:focus {
-      color: #f4c430;
-      outline: none;
-    }
-    /* Header */
     header {
       background-color: #0d1b2a;
-      padding: 10px 20px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      position: relative;
     }
     .header-top {
       display: flex;
       align-items: center;
       width: 100%;
-      max-width: 1200px;
       justify-content: space-between;
     }
     .logo {
@@ -66,16 +46,12 @@
     .logo img {
       width: 50px;
       height: 50px;
-      margin-right: 12px;
-      filter: drop-shadow(0 0 1px rgba(255,255,255,0.5));
+      margin-right: 10px;
     }
     .logo span {
       color: #fff;
-      font-weight: 700;
-      font-size: 20px;
-      font-family: 'Merriweather', serif;
-      letter-spacing: 0.05em;
-      user-select: none;
+      font-weight: bold;
+      font-size: 18px;
     }
     .menu-toggle {
       display: none;
@@ -83,235 +59,190 @@
       color: #fff;
       cursor: pointer;
       user-select: none;
-      transition: color 0.3s ease;
-    }
-    .menu-toggle:hover,
-    .menu-toggle:focus {
-      color: #f4c430;
-      outline: none;
     }
     nav {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
       background-color: #0d1b2a;
-      padding: 8px 0;
-      width: 100%;
-      max-width: 1200px;
-      justify-content: center;
-      transition: max-height 0.4s ease;
+      padding: 5px 0;
+      transition: transform 0.3s ease-in-out;
     }
     nav a {
       color: #fff;
-      padding: 10px 18px;
+      text-decoration: none;
+      padding: 10px 15px;
       white-space: nowrap;
-      font-weight: 600;
-      font-family: 'Merriweather', serif;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
     }
     nav a:hover,
     nav a:focus {
       background-color: #1b2c47;
-      outline: 2px solid #f4c430;
-      outline-offset: 2px;
+      outline: none;
     }
-    /* Overlay menu mobile */
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 900;
-    }
-    .overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    /* Mobile nav */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      nav {
-        position: fixed;
-        top: 60px;
-        left: 0; right: 0;
-        background-color: #0d1b2a;
-        flex-direction: column;
-        max-height: 0;
-        overflow: hidden;
-        border-bottom: 2px solid #f4c430;
-        z-index: 1000;
-      }
-      nav.active {
-        max-height: 400px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      }
-      nav a {
-        padding: 15px 20px;
-        border-bottom: 1px solid #1b2c47;
-      }
-      nav a:last-child {
-        border-bottom: none;
-      }
-    }
-    /* Main */
     main {
       flex-grow: 1;
-      max-width: 1200px;
-      width: 90%;
-      margin: 30px auto;
     }
     .hero {
       text-align: center;
       background-color: #1b263b;
       color: #fff;
-      padding: 50px 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: background-color 0.3s ease;
-      user-select: none;
+      padding: 40px 20px;
     }
     .hero h1 {
-      font-size: 2.25rem;
-      margin-bottom: 15px;
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
     .hero p {
-      font-size: 1.125rem;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.4;
+      font-size: 15px;
     }
-    /* Footer */
+    .destacado {
+      background-color: #fff;
+      padding: 20px;
+      margin: 20px;
+      border-left: 4px solid #f4c430;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .categorias a {
+      background-color: #e9ecef;
+      padding: 8px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
     footer {
       background-color: #0d1b2a;
       color: #fff;
       text-align: center;
-      padding: 25px 20px;
+      padding: 15px 10px;
       font-size: 14px;
       margin-top: auto;
-      user-select: none;
     }
-    /* Scroll to top button */
-    #toTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #f4c430;
-      border: none;
-      padding: 12px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      display: none;
-      font-size: 22px;
-      line-height: 1;
-      color: #0d1b2a;
-      font-weight: 700;
-      user-select: none;
-    }
-    #toTopBtn:hover,
-    #toTopBtn:focus {
-      background-color: #d4af37;
-      outline: none;
-      transform: scale(1.1);
-      color: #fff;
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+      }
+      nav.active {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="header-top">
-      <div class="logo" role="banner">
-        <img src="https://via.placeholder.com/50" alt="Logo Lyne" />
-        <span>Lyne</span>
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo de Lyne" />
+        <span>Lyne | Revista Global</span>
       </div>
-      <div class="menu-toggle" tabindex="0" role="button" aria-label="Menú navegación">&#9776;</div>
+      <div
+        class="menu-toggle"
+        aria-label="Alternar menú de navegación"
+        role="button"
+        tabindex="0"
+        onclick="toggleMenu()"
+        onkeypress="if(event.key==='Enter') toggleMenu()"
+      >
+        ☰
+      </div>
     </div>
-    <nav role="navigation" aria-label="Menú principal">
-      <a href="#inicio">Inicio</a>
+    <nav id="main-nav">
       <a href="#articulos">Artículos</a>
       <a href="#opiniones">Opiniones</a>
-      <a href="#concursos">Concursos</a>
-      <a href="#convenios">Convenios</a>
       <a href="#contacto">Contacto</a>
+      <a href="#revistas">Revistas Universitarias</a>
+      <a href="#autores">Autores Destacados</a>
+      <a href="#iniciativas">Iniciativas Estudiantiles</a>
     </nav>
   </header>
 
   <main>
-    <section id="inicio" class="hero" tabindex="0">
-      <h1>Bienvenidos a Lyne</h1>
-      <p>Plataforma internacional para la difusión del conocimiento académico mediante publicaciones estudiantiles.</p>
+    <section class="hero">
+      <h1>Lyne: Plataforma Internacional para la Difusión del Conocimiento Académico</h1>
+      <p>
+        Un entorno riguroso y creativo para la publicación estudiantil y la
+        proyección del saber crítico en el ámbito global.
+      </p>
+    </section>
+
+    <section class="destacado" id="articulos">
+      <h2>Artículo Destacado: El futuro de la educación científica</h2>
+      <p>Exploramos cómo la investigación escolar está transformando el pensamiento global.</p>
+    </section>
+
+    <div class="categorias">
+      <a href="#derecho">Derecho</a>
+      <a href="#economia">Economía</a>
+      <a href="#pedagogia">Pedagogía</a>
+      <a href="#cienciaspoliticas">Ciencias Políticas</a>
+      <a href="#agro">Agro: Ambiental</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#sociales">Ciencias Sociales</a>
+    </div>
+
+    <section class="destacado" id="derecho">
+      <h2>Derecho: La justicia en manos juveniles</h2>
+      <p>Estudiantes exploran el derecho constitucional y su impacto en los derechos humanos.</p>
+    </section>
+
+    <section class="destacado" id="economia">
+      <h2>Economía: Nuevas miradas desde la educación secundaria</h2>
+      <p>Propuestas económicas estudiantiles ante desafíos locales y globales.</p>
+    </section>
+
+    <section class="destacado" id="pedagogia">
+      <h2>Pedagogía: Innovación en el aula</h2>
+      <p>Iniciativas que están revolucionando la enseñanza desde la perspectiva estudiantil.</p>
+    </section>
+
+    <section class="destacado" id="cienciaspoliticas">
+      <h2>Ciencias Políticas: Democracia y juventud</h2>
+      <p>Reflexiones sobre el papel de los jóvenes en los sistemas democráticos.</p>
+    </section>
+
+    <section class="destacado" id="agro">
+      <h2>Agro: Ambiental</h2>
+      <p>Proyectos que integran sostenibilidad, agricultura y protección ambiental.</p>
+    </section>
+
+    <section class="destacado" id="tecnologia">
+      <h2>Tecnología: Innovación al servicio de la sociedad</h2>
+      <p>Soluciones tecnológicas desarrolladas por estudiantes para su comunidad.</p>
+    </section>
+
+    <section class="destacado" id="sociales">
+      <h2>Ciencias Sociales: Cultura, historia y transformación</h2>
+      <p>Análisis sociales y humanísticos que fomentan una visión crítica del mundo.</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Lyne Revista Global. Todos los derechos reservados.</p>
+    &copy; 2025 Lyne | Revista Global. Todos los derechos reservados.
   </footer>
 
-  <!-- Scroll to top button -->
-  <button id="toTopBtn" aria-label="Subir al inicio" title="Subir al inicio">↑</button>
-  <!-- Overlay para menú móvil -->
-  <div class="overlay" id="overlay"></div>
-
   <script>
-    // Toggle menú móvil
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    const overlay = document.getElementById('overlay');
-
+    const nav = document.getElementById('main-nav');
     function toggleMenu() {
       nav.classList.toggle('active');
-      overlay.classList.toggle('active');
     }
 
-    menuToggle.addEventListener('click', toggleMenu);
-    menuToggle.addEventListener('keypress', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
-    });
-    overlay.addEventListener('click', toggleMenu);
-
-    // Cerrar menú al seleccionar un enlace
-    nav.querySelectorAll('a').forEach(link => {
+    // Cerrar menú cuando se hace clic en un enlace (en móvil)
+    nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        if (nav.classList.contains('active')) {
-          toggleMenu();
-        }
-      });
-    });
-
-    // Scroll to top button
-    const toTopBtn = document.getElementById('toTopBtn');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        toTopBtn.style.display = 'block';
-        toTopBtn.style.opacity = '1';
-      } else {
-        toTopBtn.style.opacity = '0';
-        setTimeout(() => {
-          toTopBtn.style.display = 'none';
-        }, 300);
-      }
-    });
-
-    toTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
+        nav.classList.remove('active');
       });
     });
   </script>
 </body>
-          </html>
+                                                                                              </html>
