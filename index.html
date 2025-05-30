@@ -1,18 +1,29 @@
-<!DOCTYPE html><html lang="es"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lyne | Revista Global</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather&family=Libre+Baskerville&display=swap">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Merriweather&family=Libre+Baskerville&display=swap"
+  />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Libre Baskerville', serif;
       background-color: #f8f9fa;
       color: #212529;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
       background-color: #0d1b2a;
@@ -44,9 +55,10 @@
     }
     .menu-toggle {
       display: none;
-      font-size: 24px;
+      font-size: 28px;
       color: #fff;
       cursor: pointer;
+      user-select: none;
     }
     nav {
       display: flex;
@@ -62,8 +74,13 @@
       padding: 10px 15px;
       white-space: nowrap;
     }
-    nav a:hover {
+    nav a:hover,
+    nav a:focus {
       background-color: #1b2c47;
+      outline: none;
+    }
+    main {
+      flex-grow: 1;
     }
     .hero {
       text-align: center;
@@ -83,7 +100,7 @@
       padding: 20px;
       margin: 20px;
       border-left: 4px solid #f4c430;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .categorias {
       display: flex;
@@ -100,8 +117,13 @@
       color: #333;
       font-weight: bold;
     }
-    section {
-      padding: 20px;
+    footer {
+      background-color: #0d1b2a;
+      color: #fff;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      margin-top: auto;
     }
     @media (max-width: 768px) {
       .menu-toggle {
@@ -121,12 +143,21 @@
   <header>
     <div class="header-top">
       <div class="logo">
-        <img src="logo.jpg" alt="Logo">
+        <img src="logo.jpg" alt="Logo de Lyne" />
         <span>Lyne | Revista Global</span>
       </div>
-      <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+      <div
+        class="menu-toggle"
+        aria-label="Alternar menú de navegación"
+        role="button"
+        tabindex="0"
+        onclick="toggleMenu()"
+        onkeypress="if(event.key==='Enter') toggleMenu()"
+      >
+        ☰
+      </div>
     </div>
-    <nav>
+    <nav id="main-nav">
       <a href="#articulos">Artículos</a>
       <a href="#opiniones">Opiniones</a>
       <a href="#contacto">Contacto</a>
@@ -134,41 +165,84 @@
       <a href="#autores">Autores Destacados</a>
       <a href="#iniciativas">Iniciativas Estudiantiles</a>
     </nav>
-  </header>  <section class="hero">
-    <h1>Lyne: Plataforma Internacional para la Difusión del Conocimiento Académico</h1>
-    <p>Un entorno riguroso y creativo para la publicación estudiantil y la proyección del saber crítico en el ámbito global.</p>
-  </section>  <section class="destacado" id="articulos">
-    <h2>Artículo Destacado: El futuro de la educación científica</h2>
-    <p>Exploramos cómo la investigación escolar está transformando el pensamiento global.</p>
-  </section>  <div class="categorias">
-    <a href="#derecho">Derecho</a>
-    <a href="#economia">Economía</a>
-    <a href="#pedagogia">Pedagogía</a>
-    <a href="#cienciaspoliticas">Ciencias Políticas</a>
-    <a href="#agro">Agro: Ambiental</a>
-    <a href="#tecnologia">Tecnología</a>
-    <a href="#sociales">Ciencias Sociales</a>
-  </div>  <section class="destacado" id="derecho">
-    <h2>Derecho: La justicia en manos juveniles</h2>
-    <p>Estudiantes exploran el derecho constitucional y su impacto en los derechos humanos.</p>
-  </section>  <section class="destacado" id="economia">
-    <h2>Economía: Nuevas miradas desde la educación secundaria</h2>
-    <p>Propuestas económicas estudiantiles ante desafíos locales y globales.</p>
-  </section>  <section class="destacado" id="pedagogia">
-    <h2>Pedagogía: Innovación en el aula</h2>
-    <p>Iniciativas que están revolucionando la enseñanza desde la perspectiva estudiantil.</p>
-  </section>  <section class="destacado" id="cienciaspoliticas">
-    <h2>Ciencias Políticas: Democracia y juventud</h2>
-    <p>Reflexiones sobre el papel de los jóvenes en los sistemas democráticos.</p>
-  </section>  <section class="destacado" id="agro">
-    <h2>Agro: Ambiental</h2>
-    <p>Proyectos que integran sostenibilidad, agricultura y protección ambiental.</p>
-  </section>  <section class="destacado" id="tecnologia">
-    <h2>Tecnología: Innovación al servicio de la sociedad</h2>
-    <p>Soluciones tecnológicas desarrolladas por estudiantes para su comunidad.</p>
-  </section>  <section class="destacado" id="sociales">
-    <h2>Ciencias Sociales: Cultura, historia y transformación</h2>
-    <p>Análisis sociales y humanísticos que fomentan una visión crítica del mundo.</p>
-  </section>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Lyne: Plataforma Internacional para la Difusión del Conocimiento Académico</h1>
+      <p>
+        Un entorno riguroso y creativo para la publicación estudiantil y la
+        proyección del saber crítico en el ámbito global.
+      </p>
+    </section>
+
+    <section class="destacado" id="articulos">
+      <h2>Artículo Destacado: El futuro de la educación científica</h2>
+      <p>Exploramos cómo la investigación escolar está transformando el pensamiento global.</p>
+    </section>
+
+    <div class="categorias">
+      <a href="#derecho">Derecho</a>
+      <a href="#economia">Economía</a>
+      <a href="#pedagogia">Pedagogía</a>
+      <a href="#cienciaspoliticas">Ciencias Políticas</a>
+      <a href="#agro">Agro: Ambiental</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#sociales">Ciencias Sociales</a>
+    </div>
+
+    <section class="destacado" id="derecho">
+      <h2>Derecho: La justicia en manos juveniles</h2>
+      <p>Estudiantes exploran el derecho constitucional y su impacto en los derechos humanos.</p>
+    </section>
+
+    <section class="destacado" id="economia">
+      <h2>Economía: Nuevas miradas desde la educación secundaria</h2>
+      <p>Propuestas económicas estudiantiles ante desafíos locales y globales.</p>
+    </section>
+
+    <section class="destacado" id="pedagogia">
+      <h2>Pedagogía: Innovación en el aula</h2>
+      <p>Iniciativas que están revolucionando la enseñanza desde la perspectiva estudiantil.</p>
+    </section>
+
+    <section class="destacado" id="cienciaspoliticas">
+      <h2>Ciencias Políticas: Democracia y juventud</h2>
+      <p>Reflexiones sobre el papel de los jóvenes en los sistemas democráticos.</p>
+    </section>
+
+    <section class="destacado" id="agro">
+      <h2>Agro: Ambiental</h2>
+      <p>Proyectos que integran sostenibilidad, agricultura y protección ambiental.</p>
+    </section>
+
+    <section class="destacado" id="tecnologia">
+      <h2>Tecnología: Innovación al servicio de la sociedad</h2>
+      <p>Soluciones tecnológicas desarrolladas por estudiantes para su comunidad.</p>
+    </section>
+
+    <section class="destacado" id="sociales">
+      <h2>Ciencias Sociales: Cultura, historia y transformación</h2>
+      <p>Análisis sociales y humanísticos que fomentan una visión crítica del mundo.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Lyne | Revista Global. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    function toggleMenu() {
+      nav.classList.toggle('active');
+    }
+
+    // Cerrar menú cuando se hace clic en un enlace (en móvil)
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+    });
+  </script>
 </body>
-  </html>
+                                    </html>
