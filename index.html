@@ -6,12 +6,6 @@
   <title>Lyne | Revista Global</title>
   <meta name="description" content="Plataforma internacional para la difusión del conocimiento académico mediante publicaciones estudiantiles." />
   <meta name="author" content="Lyne Revista Global" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Lyne | Revista Global" />
-  <meta property="og:description" content="Difusión global del conocimiento académico en una plataforma estudiantil." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tu-dominio.com/" />
-  <meta property="og:image" content="https://tu-dominio.com/preview.jpg" />
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Merriweather&family=Libre+Baskerville&display=swap"
@@ -19,9 +13,7 @@
   <style>
     /* Reset & base */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     html {
       scroll-behavior: smooth;
@@ -127,10 +119,8 @@
     /* Overlay menu mobile */
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       opacity: 0;
       pointer-events: none;
@@ -149,8 +139,7 @@
       nav {
         position: fixed;
         top: 60px;
-        left: 0;
-        right: 0;
+        left: 0; right: 0;
         background-color: #0d1b2a;
         flex-direction: column;
         max-height: 0;
@@ -159,7 +148,7 @@
         z-index: 1000;
       }
       nav.active {
-        max-height: 400px; /* suficiente para todos los enlaces */
+        max-height: 400px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       }
       nav a {
@@ -200,55 +189,6 @@
       margin: 0 auto;
       line-height: 1.4;
     }
-    .destacado {
-      background-color: #fff;
-      padding: 22px 25px;
-      margin: 25px 0;
-      border-left: 6px solid #f4c430;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-    }
-    .destacado:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    .destacado h2 {
-      margin-bottom: 12px;
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #0d1b2a;
-    }
-    .destacado p {
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.5;
-    }
-    .categorias {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin: 35px 0 40px;
-    }
-    .categorias a {
-      background-color: #e9ecef;
-      padding: 10px 16px;
-      border-radius: 30px;
-      font-weight: 700;
-      color: #212529;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.07);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .categorias a:hover,
-    .categorias a:focus {
-      background-color: #f4c430;
-      color: #0d1b2a;
-      outline: none;
-      box-shadow: 0 4px 12px rgba(244,196,48,0.5);
-    }
     /* Footer */
     footer {
       background-color: #0d1b2a;
@@ -258,45 +198,6 @@
       font-size: 14px;
       margin-top: auto;
       user-select: none;
-    }
-    footer .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-    footer .social-links {
-      display: flex;
-      gap: 20px;
-    }
-    footer .social-links a {
-      color: #f4c430;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-    footer .social-links a:hover,
-    footer .social-links a:focus {
-      color: #fff;
-      outline: none;
-    }
-    footer .footer-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    footer .footer-links a {
-      color: #f4c430;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    footer .footer-links a:hover,
-    footer .footer-links a:focus {
-      color: #fff;
-      outline: none;
     }
     /* Scroll to top button */
     #toTopBtn {
@@ -311,4 +212,106 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: background-color 0.3s ease, transform 0.3s ease;
       display: none;
-      z-index:
+      font-size: 22px;
+      line-height: 1;
+      color: #0d1b2a;
+      font-weight: 700;
+      user-select: none;
+    }
+    #toTopBtn:hover,
+    #toTopBtn:focus {
+      background-color: #d4af37;
+      outline: none;
+      transform: scale(1.1);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo" role="banner">
+        <img src="https://via.placeholder.com/50" alt="Logo Lyne" />
+        <span>Lyne</span>
+      </div>
+      <div class="menu-toggle" tabindex="0" role="button" aria-label="Menú navegación">&#9776;</div>
+    </div>
+    <nav role="navigation" aria-label="Menú principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#articulos">Artículos</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#concursos">Concursos</a>
+      <a href="#convenios">Convenios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero" tabindex="0">
+      <h1>Bienvenidos a Lyne</h1>
+      <p>Plataforma internacional para la difusión del conocimiento académico mediante publicaciones estudiantiles.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Lyne Revista Global. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button id="toTopBtn" aria-label="Subir al inicio" title="Subir al inicio">↑</button>
+  <!-- Overlay para menú móvil -->
+  <div class="overlay" id="overlay"></div>
+
+  <script>
+    // Toggle menú móvil
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuToggle.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+    overlay.addEventListener('click', toggleMenu);
+
+    // Cerrar menú al seleccionar un enlace
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Scroll to top button
+    const toTopBtn = document.getElementById('toTopBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        toTopBtn.style.display = 'block';
+        toTopBtn.style.opacity = '1';
+      } else {
+        toTopBtn.style.opacity = '0';
+        setTimeout(() => {
+          toTopBtn.style.display = 'none';
+        }, 300);
+      }
+    });
+
+    toTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+  </script>
+</body>
+          </html>
